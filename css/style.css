@@ -1,3 +1,13 @@
+/* VARIABLES */
+
+:root {
+    --red-color: #ed2553;
+    --blue-color: #337ab7;
+    --dark-grey-color: #333;
+    --delete-icon: '\00D7';
+}
+
+
 /* RESETS */
 
 *,
@@ -12,34 +22,24 @@
     outline: none;
 }
 
+
 /* GENERIC CSS */
 
 body {
-    background-image: url(../img/background.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
     font-family: 'Roboto', sans-serif;
-}
-
-body,
-html {
-    overflow: hidden;
 }
 
 
 /* CUSTOM CSS */
 
 .main-container {
-    width: 100%;
-    max-width: 460px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    background-image: url(../img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding-top: 150px;
+    padding-bottom: 10px;
 }
 
 .hamster {
@@ -48,6 +48,8 @@ html {
 
 .hamster.top {
     top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hamster.right {
@@ -62,10 +64,9 @@ html {
 /* FORM */
 
 .form {
+    margin: 0 auto;
+    max-width: 460px;
     position: relative;
-    top: 0;
-    width: 100%;
-    float: left;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
@@ -98,7 +99,7 @@ html {
     font-size: 34px;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #ed2553;
+    color: var(--red-color);
 }
 
 .title:before {
@@ -108,7 +109,7 @@ html {
     position: absolute;
     top: 0;
     left: -50px;
-    background: #ed2553;
+    background: var(--red-color);
 }
 
 
@@ -155,7 +156,7 @@ html {
     left: 50%;
     bottom: -0.0625rem;
     position: absolute;
-    background: #337ab7;
+    background: var(--blue-color);
     -webkit-transition: left 0.28s ease, width 0.28s ease;
     -o-transition: left 0.28s ease, width 0.28s ease;
     transition: left 0.28s ease, width 0.28s ease;
@@ -181,7 +182,7 @@ html {
 
 .form-group input:focus,
 .form-group input:valid {
-    color: #333;
+    color: var(--dark-grey-color);
 }
 
 .form-group input:focus~.input-label,
@@ -197,7 +198,7 @@ html {
 }
 
 .form-group input:focus~.input-label {
-    color: #337ab7;
+    color: var(--blue-color);
 }
 
 .form-group input:focus~.input-bottom-bar::before {
@@ -214,7 +215,7 @@ html {
     cursor: pointer;
     padding-left: 2rem;
     text-align: left;
-    color: #333;
+    color: var(--dark-grey-color);
 }
 
 .form-radio input {
@@ -264,12 +265,12 @@ html {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: var(--blue-color);
+    border-color: var(--blue-color);
 }
 
 .radio label:hover .helper {
-    color: #337ab7;
+    color: var(--blue-color);
 }
 
 .radio input:checked~.helper::after {
@@ -279,7 +280,7 @@ html {
 }
 
 .radio input:checked~.helper::before {
-    color: #337ab7;
+    color: var(--blue-color);
 }
 
 
@@ -304,13 +305,13 @@ html {
     padding: 5px 15px;
     margin-right: 5px;
     margin-bottom: 5px;
-    background: #337ab7;
+    background: var(--blue-color);
     color: #fff;
     cursor: pointer;
 }
 
 .brand:hover {
-    background: #ed2553;
+    background: var(--red-color);
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
@@ -321,7 +322,7 @@ html {
 }
 
 .brand:after {
-    content: '\00D7';
+    content: var(--delete-icon);
     display: none;
     position: absolute;
     top: 0;
@@ -345,6 +346,19 @@ html {
 }
 
 .submit-btn:hover {
-    color: #ed2553;
-    border-color: #ed2553;
+    color: var(--red-color);
+    border-color: var(--red-color);
+}
+
+@media only screen and (max-width: 770px) {
+    .hamster.right {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .form {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
